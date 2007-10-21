@@ -36,7 +36,7 @@ def parse_options():
     parser = OptionParser()
 
     parser.add_option("-d", "--debug", action="store_true", dest="debug",
-        default=False, help="turns debugging on")
+        default=False, help="Turns debugging on")
     parser.add_option("--dump", action="store_true", dest="dump",
         default=False, help="Shows a hexdump of the file")
 
@@ -54,21 +54,23 @@ if __name__ == '__main__':
 
     for arg in args:
         for fname in glob.glob(arg):
-            data = read_file(fname)
-            p = pyamf.AMFMessageDecoder(data)
-
-            if options.debug:
-                print "=" * 120
-
-            print "Parsing file:", fname.rsplit("\\",1)[-1]
-
-            try:
-                obj = p.decode()
-            except:
-                raise
-            else:
-                if options.dump:
-                    print pyamf.util.hexdump(data)
+            where = fname.find(".py")
+            if where == -1:
+                data = read_file(fname)
+                p = pyamf.AMFMessageDecoder(data)
 
                 if options.debug:
-                    print repr(obj)
+                    print "=" * 120
+
+                print "Decoding file:", fname.rsplit("\\",1)[-1]
+
+                try:
+                    obj = p.decode()
+                except:
+                    raise
+                else:
+                    if options.dump:
+                        print pyamf.util.hexdump(data)
+
+                    if options.debug:
+                        print repr(obj)
