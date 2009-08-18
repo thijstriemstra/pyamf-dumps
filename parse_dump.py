@@ -34,7 +34,7 @@ def read_file(fname):
     """
     Read file containing AMF data.
     """
-    f = file(fname, "r")
+    f = file(fname, "rb")
     data = f.read()
     f.close()
 
