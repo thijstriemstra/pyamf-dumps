@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
-# Copyright (c) 2007-2008 The PyAMF Project.
+# Copyright (c) 2007-2010 The PyAMF Project.
 # See LICENSE for details.
 
 """
@@ -14,11 +14,13 @@ from fnmatch import fnmatch
 import pyamf
 from pyamf import remoting
 
+
 def parse_options():
     """
     Parse command-line arguments.
     """
-    parser = OptionParser()
+    usage = "Usage: %prog [options] file(s)"
+    parser = OptionParser(usage=usage)
 
     parser.add_option("-d", "--debug", action="store_true", dest="debug",
         default=False, help="Enable debugging")
@@ -30,6 +32,7 @@ def parse_options():
 
     return parser.parse_args()
 
+
 def read_file(fname):
     """
     Read file containing AMF data.
@@ -39,6 +42,7 @@ def read_file(fname):
     f.close()
 
     return data
+
 
 def main():
     """
@@ -75,6 +79,7 @@ def main():
                     print pyamf.util.hexdump(body)
 
                 print "-" * 80
+
 
 if __name__ == '__main__':
     main()
