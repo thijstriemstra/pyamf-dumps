@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
-# Copyright (c) 2007-2010 The PyAMF Project.
-# See LICENSE for details.
+# Copyright (c) The PyAMF Project.
+# See LICENSE.txt for details.
 
 """
 Extracts and displays information for files that contain AMF data.
