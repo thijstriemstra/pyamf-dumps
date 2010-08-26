@@ -7,7 +7,7 @@ functionality and bugfixes in the PyAMF library.
 Usage
 -----
 
-Parse all files: `./parse_dump.py *`
-
+Parse all files in 'dumps' folder: `./parse_dump.py dumps/*`
+Only parse '.amf0' files: `./parse_dump.py dumps/*.amf0`
 
 .. _PyAMF: http://pyamf.org
